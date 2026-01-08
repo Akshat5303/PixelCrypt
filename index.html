@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelCrypt | Secure Image Steganography</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="pixel-bg"></canvas>
+
+    <nav>
+        <div class="logo">Pixel<span class="highlight">Crypt</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#workspace" onclick="switchTab('encrypt')">Encrypt</a></li>
+            <li><a href="#workspace" onclick="switchTab('decrypt')">Decrypt</a></li>
+            <li><a href="#team">Our Team</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hide Secrets in <span class="glitch">Plain Sight</span></h1>
+            <p>Advanced Steganography Tool designed for the modern web. Secure your data inside pixels effortlessly.</p>
+            <a href="#workspace" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="workspace" class="workspace-section">
+        <div class="container">
+            
+            <div class="tabs">
+                <button class="tab-btn active" id="tab-encrypt" onclick="switchTab('encrypt')">Encryption Mode</button>
+                <button class="tab-btn" id="tab-decrypt" onclick="switchTab('decrypt')">Decryption Mode</button>
+            </div>
+
+            <div id="panel-encrypt" class="tool-panel active-panel">
+                <div class="panel-header">
+                    <h2>Encode Message</h2>
+                    <p>Upload an image and hide your secret text inside it.</p>
+                </div>
+                
+                <div class="drop-zone">
+                    <input type="file" id="upload-encode" accept="image/*" hidden>
+                    <label for="upload-encode" class="upload-label">
+                        <span class="icon">📁</span>
+                        <span>Click to Upload Image</span>
+                    </label>
+                </div>
+                
+                <canvas id="canvas-encode"></canvas>
+
+                <div class="input-group">
+                    <textarea id="secret-message" placeholder="Type your secret message here..."></textarea>
+                </div>
+
+                <button class="action-btn" onclick="encodeMessage()">🔒 Encrypt & Download</button>
+            </div>
+
+            <div id="panel-decrypt" class="tool-panel">
+                <div class="panel-header">
+                    <h2>Decode Message</h2>
+                    <p>Upload a PixelCrypt secured image to reveal the hidden text.</p>
+                </div>
+
+                <div class="drop-zone">
+                    <input type="file" id="upload-decode" accept="image/*" hidden>
+                    <label for="upload-decode" class="upload-label">
+                        <span class="icon">🔓</span>
+                        <span>Click to Upload Image</span>
+                    </label>
+                </div>
+
+                <canvas id="canvas-decode"></canvas>
+
+                <div class="output-group">
+                    <button class="action-btn secondary" onclick="decodeMessage()">Reveal Message</button>
+                    <div id="decoded-output" class="result-box">Waiting for image...</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <h2>Meet The Developers</h2>
+        <p class="team-subtitle">The minds behind PixelCrypt</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="avatar">👨‍💻</div> <h3>Akshat Dhanani</h3>
+                <p class="role">Lead Developer</p>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar">🚀</div>
+                <h3>Drashti Gadhiya</h3>
+                <p class="role">UI/UX Designer</p>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar">🛡️</div>
+                <h3>Sapna Rajpurohit</h3>
+                <p class="role">Security Analyst</p>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar">💡</div>
+                <h3>Deep Lakhani</h3>
+                <p class="role">Software Tester</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PixelCrypt.  Managed by Happy Coders Team.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
